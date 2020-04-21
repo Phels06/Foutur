@@ -1,11 +1,13 @@
 package Project20200421.model;
 
+import java.util.List;
+
 public class Adherent {
 	private Integer id;
 	private String prenom;
 	private String nom;
 	private Adresse adresse;
-	private Article article;
+	private List<Article> articles;
 
 ////////////////////////////////////
 
