@@ -1,6 +1,6 @@
 package Project20200421.model;
 
-public class Article {
+public abstract class Article {
 	private Integer id;
 	private Integer nbDisques;
 	private Adherent emprunteur;

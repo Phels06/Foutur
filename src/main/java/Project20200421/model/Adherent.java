@@ -14,12 +14,12 @@ public class Adherent {
 	public Adherent() {
 	}
 
-	public Adherent(Integer id, String prenom, String nom, Adresse adresse, Article article) {
+	public Adherent(Integer id, String prenom, String nom, Adresse adresse, List<Article> articles) {
 		this.id = id;
 		this.prenom = prenom;
 		this.nom = nom;
 		this.adresse = adresse;
-		this.article = article;
+		this.articles = articles;
 	}
 
 ///////////////////////////////////////
