@@ -56,12 +56,12 @@ public class Adherent {
 		this.adresse = adresse;
 	}
 
-	public Article getArticle() {
-		return article;
+	public List<Article> getArticles() {
+		return articles;
 	}
 
-	public void setArticle(Article article) {
-		this.article = article;
+	public void setArticles(List<Article> articles) {
+		this.articles = articles;
 	}
 
 	@Override
