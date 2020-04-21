@@ -7,13 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import Project20200421.context.Context;
-import Project20200421.model.Article;
 import Project20200421.model.Film;
 
 public class DaoFilmJdbcImpl implements DaoFilm {
@@ -29,16 +26,6 @@ public class DaoFilmJdbcImpl implements DaoFilm {
 			} else {
 				ps.setNull(2, Types.DATE);
 			}
-//			if (obj.getArticles() != null) {
-//				ps.setInt(3, obj.getArticles().getId());
-//			} else {
-//				ps.setNull(3, Types.INTEGER);
-//			}
-//			if (obj.getRealisations() != null) {
-//				ps.setInt(4, obj.getRealisations().getId());
-//			} else {
-//				ps.setNull(4, Types.INTEGER);
-//			}
 			ps.executeUpdate();
 			ResultSet rs = ps.getGeneratedKeys();
 			if (rs.next()) {
@@ -59,7 +46,7 @@ public class DaoFilmJdbcImpl implements DaoFilm {
 	@Override
 	public Film update(Film obj) {
 		try (PreparedStatement ps = Context.getInstance().getConnection()
-				.prepareStatement("update personne set titre=?, date_de_sortie=? where id=?")) {
+				.prepareStatement("update film set titre=?, date_de_sortie=? where id=?")) {
 			ps.setString(1, obj.getTitre());
 			if (obj.getDateDeSortie() != null) {
 				ps.setDate(2, new Date(obj.getDateDeSortie().getTime()));
@@ -119,7 +106,7 @@ public class DaoFilmJdbcImpl implements DaoFilm {
 		Context.destroy();
 		return Optional.ofNullable(f);
 	}
-	
+
 	@Override
 	public List<Film> findAll() {
 		List<Film> films = new ArrayList<Film>();
@@ -136,13 +123,15 @@ public class DaoFilmJdbcImpl implements DaoFilm {
 		Context.destroy();
 		return films;
 	}
-	
-	public String findRealisateur() {
+
+	public String findRealisateur(String titre) {
 		String r = null;
-		try (Statement st = Context.getInstance().getConnection().createStatement()) {
-			ResultSet rs = st.executeQuery("select r.prenom as prenom, r.nom as nom, "
-					+ "from film f left join realisation rea on f.id=rea.id_film "
-					+ "left join realisateur r on rea.id_realisateur=r.id");
+		try (PreparedStatement ps = Context.getInstance().getConnection()
+				.prepareStatement("select r.prenom as prenom, r.nom as nom, "
+						+ "from film f left join realisation rea on f.id=rea.id_film "
+						+ "left join realisateur r on rea.id_realisateur=r.id where f.id=?")) {
+			ps.setString(1, titre);
+			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				r = rs.getString("prenom") + " " + rs.getString("nom");
 			}
@@ -152,7 +141,7 @@ public class DaoFilmJdbcImpl implements DaoFilm {
 		Context.destroy();
 		return r;
 	}
-	
+
 //	public Set<Article> findArticle() {
 //		Set<Article> set = new HashSet<Article>();
 //		Article a = null;
