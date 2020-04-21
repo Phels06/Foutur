@@ -1,5 +1,7 @@
 package Project20200421.model;
 
+import Project20200421.model.Article;
+
 public class Dvd extends Article{
 	private Boolean bonus;
 
@@ -10,6 +12,14 @@ public class Dvd extends Article{
 
 	public Dvd(Integer id, Integer nbDisques, Adherent emprunteur, Film film, Boolean bonus) {
 		super(id, nbDisques, emprunteur, film);
+		this.bonus = bonus;
+	}
+	
+	
+	
+
+	public Dvd(Integer id, Integer nbDisques, Boolean bonus) {
+		super(id, nbDisques);
 		this.bonus = bonus;
 	}
 
