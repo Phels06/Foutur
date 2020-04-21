@@ -19,6 +19,12 @@ public class Realisateur {
 		this.nom = nom;
 		this.realisations = realisations;
 	}
+	
+	public Realisateur(Integer id, String prenom, String nom) {
+		this.id = id;
+		this.prenom = prenom;
+		this.nom = nom;
+	}
 
 ////////////////////////////
 

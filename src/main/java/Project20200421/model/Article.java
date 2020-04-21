@@ -5,11 +5,19 @@ public abstract class Article {
 	private Integer nbDisques;
 	private Adherent emprunteur;
 	private Film film;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+	
+>>>>>>> valentin
+>>>>>>> 2dd41b85b1e5ca01713a61df920d632579f6c137
 	
 ///////////////////////
 	
 	public Article() {
 	}
+	
 	public Article(Integer id, Integer nbDisques, Adherent emprunteur, Film film) {
 		this.id = id;
 		this.nbDisques = nbDisques;
@@ -17,7 +25,14 @@ public abstract class Article {
 		this.film = film;
 	}
 	
+	public Article(Integer id, Integer nbDisques) {
+		this.id = id;
+		this.nbDisques = nbDisques;
+	}
+	
+	
 //////////////////////////
+	
 	
 	public Integer getId() {
 		return id;

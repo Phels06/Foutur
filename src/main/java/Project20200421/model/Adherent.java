@@ -17,6 +17,10 @@ public class Adherent {
 	public Adherent() {
 	}
 
+	public Adherent(Integer id) {
+	this.id = id;
+}
+
 	public Adherent(Integer id, String prenom, String nom, Adresse adresse, List<Article> articles) {
 		this.id = id;
 		this.prenom = prenom;
