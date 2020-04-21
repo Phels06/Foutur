@@ -1,11 +1,13 @@
 package Project20200421.model;
 
+import java.util.List;
+
 public class Adherent {
 	private Integer id;
 	private String prenom;
 	private String nom;
 	private Adresse adresse;
-	private Article article;
+	private List<Article> articles;
 
 ////////////////////////////////////
 
@@ -54,12 +56,12 @@ public class Adherent {
 		this.adresse = adresse;
 	}
 
-	public Article getArticle() {
-		return article;
+	public List<Article> getArticles() {
+		return articles;
 	}
 
-	public void setArticle(Article article) {
-		this.article = article;
+	public void setArticles(List<Article> articles) {
+		this.articles = articles;
 	}
 
 	@Override

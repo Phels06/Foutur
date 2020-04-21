@@ -5,7 +5,8 @@ public class Article {
 	private Integer nbDisques;
 	private Adherent emprunteur;
 	private Film film;
-	private 
+	private Dvd dvd;
+	private Bluray blueray;
 	
 ///////////////////////
 	
