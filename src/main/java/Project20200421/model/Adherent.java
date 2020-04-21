@@ -2,12 +2,15 @@ package Project20200421.model;
 
 import java.util.List;
 
+
+
 public class Adherent {
 	private Integer id;
 	private String prenom;
 	private String nom;
 	private Adresse adresse;
 	private List<Article> articles;
+	private Civilite civilite;
 
 ////////////////////////////////////
 
@@ -21,9 +24,37 @@ public class Adherent {
 		this.adresse = adresse;
 		this.articles = articles;
 	}
+	
+	public Adherent(Integer id, String prenom, String nom, Adresse adresse) {
+		this.id = id;
+		this.prenom = prenom;
+		this.nom = nom;
+		this.adresse = adresse;
+	}
+
+	public Adherent(Integer id, String prenom, String nom) {
+		this.id = id;
+		this.prenom = prenom;
+		this.nom = nom;
+	}
+	
+	public Adherent(Integer id, String prenom, String nom, Adresse adresse , Civilite civilite) {
+		this.id = id;
+		this.prenom = prenom;
+		this.nom = nom;
+		this.adresse = adresse;
+		this.setCivilite(civilite);
+	}
+	
+	public Adherent(String prenom, String nom, Adresse adresse, Civilite civilite) {
+		this.prenom = prenom;
+		this.nom = nom;
+		this.adresse = adresse;
+		this.setCivilite(civilite);
+	}
 
 ///////////////////////////////////////
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -99,5 +130,13 @@ public class Adherent {
 		} else if (!prenom.equals(other.prenom))
 			return false;
 		return true;
+	}
+
+	public Civilite getCivilite() {
+		return civilite;
+	}
+
+	public void setCivilite(Civilite civilite) {
+		this.civilite = civilite;
 	}
 }
