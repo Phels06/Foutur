@@ -14,6 +14,7 @@ public class Film {
 /////////////////////////////
 
 	public Film() {
+<<<<<<< HEAD
 
 	}
 
@@ -24,6 +25,17 @@ public class Film {
 	}
 
 	public Film(Integer id, String titre, Date dateDeSortie, Set<Article> articles, List<Realisation> realisations) {
+=======
+	}
+	
+	
+	public Film(Integer id) {
+	this.id = id;
+}
+
+
+	public Film(Integer id, String titre, Date dateDeSortie, List<Article> articles, List<Realisation> realisations) {
+>>>>>>> valentin
 		this.id = id;
 		this.titre = titre;
 		this.dateDeSortie = dateDeSortie;
